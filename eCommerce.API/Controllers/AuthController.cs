@@ -19,7 +19,7 @@ namespace eCommerce.API.Controllers
 
         [Route("Register")] // api/auth/register
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterRequest registerRequest)
+        public async Task<IActionResult> Register(Core.DTO.RegisterRequest registerRequest)
         {
             if (registerRequest == null)
             {
