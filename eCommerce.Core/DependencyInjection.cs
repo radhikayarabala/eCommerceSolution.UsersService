@@ -1,5 +1,7 @@
 ﻿using eCommerce.Core.ServiceContracts;
 using eCommerce.Core.Services;
+using eCommerce.Core.Validators;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,7 @@ public static class DependencyInjection
         // Core services often include data access, caching and other low-level components.
 
         services.AddTransient<IUserService, UsersService>();
+        services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
         return services;
     }
 }

@@ -42,14 +42,14 @@ internal class UsersService : IUserService
 
     public async Task<AuthenticationResponse?> Register(RegisterRequest registerRequest)
     {
-        ApplicationUser user = new ApplicationUser
-        {
-            PersonName = registerRequest.PersonName,
-            Email = registerRequest.Email,
-            Password = registerRequest.Password,
-            Gender = registerRequest.Gender.ToString(),
-        };
-        // ApplicationUser user = _mapper.Map<ApplicationUser>(registerRequest);
+        //ApplicationUser user = new ApplicationUser
+        //{
+        //    PersonName = registerRequest.PersonName,
+        //    Email = registerRequest.Email,
+        //    Password = registerRequest.Password,
+        //    Gender = registerRequest.Gender.ToString(),
+        //};
+         ApplicationUser user = _mapper.Map<ApplicationUser>(registerRequest);
         ApplicationUser ? registerUser = await _usersRepository.AddUser(user);
         if (registerUser == null) 
             {
